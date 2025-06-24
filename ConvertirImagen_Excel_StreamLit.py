@@ -6,9 +6,13 @@ from io import BytesIO
 import platform
 
 # Configura ruta de tesseract si es Windows
+import platform
+import pytesseract
+
+# Si estás en Windows, especifica la ruta de Tesseract
 if platform.system() == "Windows":
     pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-
+# Si estás en Linux (Render), no hagas nada: usará el binario instalado por apt.txt
 def convertir_imagen_a_excel(imagen):
     # Cargar imagen
     img = Image.open(imagen)
